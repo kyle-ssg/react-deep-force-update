@@ -40,7 +40,7 @@ function forceUpdateIfPending(internalInstance) {
 }
 
 export default function deepForceUpdate(instance) {
-  const internalInstance = instance._reactInternalInstance;
+  const internalInstance = instance._reactInternalInstance || {};
   traverseRenderedChildren(internalInstance, setPendingForceUpdate);
   traverseRenderedChildren(internalInstance, forceUpdateIfPending);
 }
